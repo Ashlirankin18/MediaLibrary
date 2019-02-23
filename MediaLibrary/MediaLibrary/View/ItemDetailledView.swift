@@ -51,6 +51,9 @@ class ItemDetailledView: UIView {
     textView.text = "Item description"
     textView.backgroundColor = #colorLiteral(red: 0.9580904876, green: 1, blue: 0.9470090475, alpha: 1)
     textView.textAlignment = .center
+    textView.dataDetectorTypes = .link
+    textView.isEditable = false
+    textView.isScrollEnabled = false
     return textView
   }()
   override init(frame: CGRect) {

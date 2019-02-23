@@ -77,10 +77,13 @@ extension MediaViewController: UITableViewDataSource{
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let itemDetailledViewController = ItemDetailledViewController()
-    itemDetailledViewController.modalPresentationStyle = .overCurrentContext
-    itemDetailledViewController.modalTransitionStyle = .coverVertical
-    self.present(itemDetailledViewController, animated: true, completion: nil)
+    if let mediaItem = mediaItems?.results[indexPath.row]{
+      let itemDetailledViewController = ItemDetailledViewController.init(item: mediaItem)
+        itemDetailledViewController.modalPresentationStyle = .overCurrentContext
+        itemDetailledViewController.modalTransitionStyle = .coverVertical
+        self.present(itemDetailledViewController, animated: true, completion: nil)
+      
+    }
   }
   
   

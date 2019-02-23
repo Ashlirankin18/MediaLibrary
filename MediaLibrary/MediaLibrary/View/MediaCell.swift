@@ -33,6 +33,7 @@ class MediaCell: UITableViewCell {
     label.backgroundColor = #colorLiteral(red: 0.9580904876, green: 1, blue: 0.9470090475, alpha: 1)
     label.textAlignment = .center
     label.adjustsFontSizeToFitWidth = true
+    label.numberOfLines = 0
     return label
   }()
   
