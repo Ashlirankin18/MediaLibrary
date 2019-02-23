@@ -16,6 +16,8 @@
 		2E8CCC9D2220E13D008191D1 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CCC9C2220E13D008191D1 /* AppError.swift */; };
 		2E8CCC9F2220E172008191D1 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CCC9E2220E172008191D1 /* ImageCache.swift */; };
 		2E8CCCA12220E41C008191D1 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CCCA02220E41C008191D1 /* MediaCell.swift */; };
+		2E8CCCA32220FB65008191D1 /* MediaApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CCCA22220FB65008191D1 /* MediaApiClient.swift */; };
+		2E8CCCA52220FBCC008191D1 /* MediaItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CCCA42220FBCC008191D1 /* MediaItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		2E8CCC9C2220E13D008191D1 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		2E8CCC9E2220E172008191D1 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		2E8CCCA02220E41C008191D1 /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
+		2E8CCCA22220FB65008191D1 /* MediaApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaApiClient.swift; sourceTree = "<group>"; };
+		2E8CCCA42220FBCC008191D1 /* MediaItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 			children = (
 				2E8CCC972220DE3D008191D1 /* MediaView.swift */,
 				2E8CCCA02220E41C008191D1 /* MediaCell.swift */,
+				2E8CCCA42220FBCC008191D1 /* MediaItemModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 				2E8CCC9C2220E13D008191D1 /* AppError.swift */,
 				2E8CCC992220E0E3008191D1 /* NetworkHelper.swift */,
 				2E8CCC9E2220E172008191D1 /* ImageCache.swift */,
+				2E8CCCA22220FB65008191D1 /* MediaApiClient.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -178,12 +184,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8CCCA32220FB65008191D1 /* MediaApiClient.swift in Sources */,
 				2E8CCCA12220E41C008191D1 /* MediaCell.swift in Sources */,
 				2E8CCC9F2220E172008191D1 /* ImageCache.swift in Sources */,
 				2E8CCC9A2220E0E3008191D1 /* NetworkHelper.swift in Sources */,
 				2E8CCC7F2220DC52008191D1 /* AppDelegate.swift in Sources */,
 				2E8CCC9D2220E13D008191D1 /* AppError.swift in Sources */,
 				2E8CCC922220DD94008191D1 /* MediaViewController.swift in Sources */,
+				2E8CCCA52220FBCC008191D1 /* MediaItemModel.swift in Sources */,
 				2E8CCC982220DE3D008191D1 /* MediaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

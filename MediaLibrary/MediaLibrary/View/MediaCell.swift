@@ -41,7 +41,7 @@ class MediaCell: UITableViewCell {
     label.layer.cornerRadius = 5
     label.layer.borderWidth = 2
     label.layer.borderColor = UIColor.black.cgColor
-    label.text = "Item Name"
+    label.text = "Item Type"
     label.backgroundColor = #colorLiteral(red: 0.9580904876, green: 1, blue: 0.9470090475, alpha: 1)
     label.textAlignment = .center
     label.adjustsFontSizeToFitWidth = true
@@ -94,7 +94,7 @@ extension MediaCell{
     itemName.topAnchor.constraint(equalToSystemSpacingBelow: safeAreaLayoutGuide.topAnchor, multiplier: 2.5).isActive = true
     itemName.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.0).isActive = true
     itemName.heightAnchor.constraint(equalToConstant: 30).isActive = true
-    itemName.widthAnchor.constraint(equalToConstant: 130).isActive = true
+    itemName.widthAnchor.constraint(equalToConstant: 250).isActive = true
   }
   
   func setUpItemTypeConstraints(){
