@@ -11,7 +11,7 @@ import UIKit
 class MediaViewController: UIViewController {
 
     let mediaView = MediaView()
-  var mediaItems = [Results](){
+  var mediaItems: Feeds? {
     didSet{
       DispatchQueue.main.async {
         self.mediaView.mediaDisplayTableView.reloadData()
@@ -54,20 +54,33 @@ class MediaViewController: UIViewController {
       }
     }
   }
-
 }
 extension MediaViewController: UITableViewDataSource{
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return mediaItems.count
+    if let item = mediaItems?.results.count{
+      return item
+    }
+    return 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = mediaView.mediaDisplayTableView.dequeueReusableCell(withIdentifier: "MediaCell", for: indexPath) as? MediaCell else { fatalError("Cell with identifier MediaCell")}
-    let mediaItem = mediaItems[indexPath.row]
+    if let mediaItem = mediaItems?.results[indexPath.row]{
     cell.itemName.text = mediaItem.artistName
-    cell.itemType.text = mediaItem.kind.capitalized
     getItemImage(urlString: mediaItem.artworkUrl100, imageView: cell.mediaTypeImage)
+      
+      if let mediaType = mediaItems?.title{
+        cell.itemType.text = mediaType
+      }
+    }
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let itemDetailledViewController = ItemDetailledViewController()
+    itemDetailledViewController.modalPresentationStyle = .overCurrentContext
+    itemDetailledViewController.modalTransitionStyle = .coverVertical
+    self.present(itemDetailledViewController, animated: true, completion: nil)
   }
   
   

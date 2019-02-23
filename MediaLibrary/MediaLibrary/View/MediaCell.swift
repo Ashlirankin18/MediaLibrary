@@ -103,7 +103,7 @@ extension MediaCell{
     itemType.topAnchor.constraint(equalToSystemSpacingBelow: itemName.bottomAnchor, multiplier: 2.5).isActive = true
     itemType.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.0).isActive = true
     itemType.heightAnchor.constraint(equalToConstant: 30).isActive = true
-    itemType.widthAnchor.constraint(equalToConstant: 130).isActive = true
+    itemType.widthAnchor.constraint(equalToConstant: 170).isActive = true
   }
   
   

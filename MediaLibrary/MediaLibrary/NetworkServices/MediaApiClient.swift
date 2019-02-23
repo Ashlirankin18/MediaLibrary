@@ -9,7 +9,7 @@
 import Foundation
 
 final class MediaApiClient{
-  static func getMediaItems(completionHendler: @escaping (AppError?,[Results]?) -> Void){
+  static func getMediaItems(completionHendler: @escaping (AppError?,Feeds?) -> Void){
     let urlString = "https://rss.itunes.apple.com/api/v1/us/music-videos/top-music-videos/all/10/explicit.json"
     NetworkHelper.shared.performDataTask(endpointURLString: urlString, httpMethod: "GET", httpBody: nil) { (error, data) in
       if let error = error {
@@ -18,8 +18,8 @@ final class MediaApiClient{
       if let data = data {
         do{
           let mediaItems = try JSONDecoder().decode(MediaItem.self, from: data)
-          let results = mediaItems.feed.results
-          completionHendler(nil,results)
+          let feed = mediaItems.feed
+          completionHendler(nil,feed)
         }catch{
           completionHendler(AppError.jsonDecodingError(error),nil)
         }
