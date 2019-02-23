@@ -23,6 +23,15 @@ class ItemDetailledView: UIView {
     view.layer.masksToBounds = true
     return view
   }()
+  lazy var mediaTypeImage:UIImageView = {
+    let imageView = UIImageView()
+    imageView.image = UIImage(named: "imageHolder")
+    imageView.backgroundColor = .red
+    imageView.layer.masksToBounds = true
+    imageView.layer.cornerRadius = 8
+    return imageView
+    
+  }()
   override init(frame: CGRect) {
     super.init(frame: UIScreen.main.bounds)
     commonInit()
@@ -61,5 +70,8 @@ extension ItemDetailledView {
     displayView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
     displayView.heightAnchor.constraint(equalToConstant: 500).isActive = true
     displayView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+  }
+  func setUpMediaImageConstraints(){
+    
   }
 }
