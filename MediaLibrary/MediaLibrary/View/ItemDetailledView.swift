@@ -32,6 +32,27 @@ class ItemDetailledView: UIView {
     return imageView
     
   }()
+  lazy var itemName:UILabel = {
+    let label = UILabel()
+    label.layer.cornerRadius = 5
+    label.layer.borderWidth = 2
+    label.layer.borderColor = UIColor.black.cgColor
+    label.text = "Item Name"
+    label.backgroundColor = #colorLiteral(red: 0.9580904876, green: 1, blue: 0.9470090475, alpha: 1)
+    label.textAlignment = .center
+    label.adjustsFontSizeToFitWidth = true
+    return label
+  }()
+  lazy var itemDescription:UITextView = {
+    let textView = UITextView()
+    textView.layer.cornerRadius = 5
+    textView.layer.borderWidth = 2
+    textView.layer.borderColor = UIColor.black.cgColor
+    textView.text = "Item description"
+    textView.backgroundColor = #colorLiteral(red: 0.9580904876, green: 1, blue: 0.9470090475, alpha: 1)
+    textView.textAlignment = .center
+    return textView
+  }()
   override init(frame: CGRect) {
     super.init(frame: UIScreen.main.bounds)
     commonInit()
@@ -62,6 +83,9 @@ extension ItemDetailledView {
     visualEffectsViews.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
     visualEffectsViews.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
     setUpDisplayView()
+    setUpMediaImageConstraints()
+    setUpMediaNameConstraints()
+    setUpMediaDescriptionConstraints()
   }
   func setUpDisplayView(){
     visualEffectsViews.contentView.addSubview(displayView)
@@ -72,6 +96,29 @@ extension ItemDetailledView {
     displayView.widthAnchor.constraint(equalToConstant: 300).isActive = true
   }
   func setUpMediaImageConstraints(){
-    
+    displayView.addSubview(mediaTypeImage)
+    mediaTypeImage.translatesAutoresizingMaskIntoConstraints = false
+    mediaTypeImage.topAnchor.constraint(equalToSystemSpacingBelow: displayView.topAnchor, multiplier: 2.0).isActive = true
+   mediaTypeImage.widthAnchor.constraint(equalToConstant: 200).isActive = true
+    mediaTypeImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    mediaTypeImage.centerXAnchor.constraint(equalTo: displayView.centerXAnchor).isActive = true
   }
+  func setUpMediaNameConstraints(){
+    displayView.addSubview(itemName)
+    itemName.translatesAutoresizingMaskIntoConstraints = false
+    itemName.topAnchor.constraint(equalToSystemSpacingBelow: mediaTypeImage.bottomAnchor, multiplier: 2.0).isActive = true
+    itemName.widthAnchor.constraint(equalToConstant: 200).isActive = true
+   itemName.heightAnchor.constraint(equalToConstant: 35).isActive = true
+    itemName.centerXAnchor.constraint(equalTo: displayView.centerXAnchor).isActive = true
+  }
+  
+  func setUpMediaDescriptionConstraints(){
+    displayView.addSubview(itemDescription)
+    itemDescription.translatesAutoresizingMaskIntoConstraints = false
+    itemDescription.topAnchor.constraint(equalToSystemSpacingBelow: itemName.bottomAnchor, multiplier: 2.0).isActive = true
+    itemDescription.widthAnchor.constraint(equalToConstant: 250).isActive = true
+    itemDescription.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    itemDescription.centerXAnchor.constraint(equalTo: displayView.centerXAnchor).isActive = true
+  }
+  
 }

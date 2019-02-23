@@ -29,7 +29,7 @@ class MediaView: UIView {
   
   func commonInit(){
     setUpViews()
-    backgroundColor = .red
+    backgroundColor = .white
   }
   
 }
