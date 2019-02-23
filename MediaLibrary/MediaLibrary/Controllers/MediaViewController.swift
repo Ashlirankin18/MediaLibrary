@@ -41,6 +41,6 @@ extension MediaViewController: UITableViewDelegate{
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return CGFloat.init(140)
+    return CGFloat.init(120)
   }
 }
