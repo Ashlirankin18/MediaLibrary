@@ -44,6 +44,7 @@ class ItemDetailledViewController: UIViewController {
     itemDetailledView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
     itemDetailledView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     itemDetailledView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    
   }
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     setUpViewConstraints()
@@ -88,8 +89,7 @@ class ItemDetailledViewController: UIViewController {
     
     \(mediaItem?.copyright ?? "no copyRight information found")
     
-    More from Artist:
-    \(mediaItem?.artistUrl.absoluteString ?? "no URL found")
+    More from Artist: \(mediaItem?.artistUrl.absoluteString ?? "no URL found")
     """
   }
   

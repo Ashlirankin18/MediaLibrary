@@ -102,14 +102,13 @@ extension MediaViewController: UITableViewDataSource{
 }
 extension MediaViewController: UITableViewDelegate{
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return "Media Types"
+    return "Media Type: Music Video"
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return CGFloat.init(120)
   }
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-    
     setUpViewConstraints()
   }
   }

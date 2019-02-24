@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class MediaCell: UITableViewCell {
   
   lazy var mediaTypeImage:UIImageView = {
@@ -63,9 +62,6 @@ class MediaCell: UITableViewCell {
     setUpConstraints()
     
   }
-  
-  
-  
 }
 extension MediaCell{
   func setUpConstraints(){
