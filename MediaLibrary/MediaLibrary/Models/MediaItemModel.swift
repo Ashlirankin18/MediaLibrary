@@ -23,5 +23,5 @@ struct Results:Codable {
   let copyright: String
   let artistUrl: URL
   let artworkUrl100 : String
-
+  
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class MediaView: UIView {
-
+  
   lazy var mediaDisplayTableView:UITableView = {
     let tableView = UITableView(frame: frame, style: .grouped)
     tableView.backgroundColor = .white
@@ -38,8 +38,8 @@ class MediaView: UIView {
 }
 extension MediaView {
   func setUpViews(){
-  
-  setUpMediaTableViewConstraints()
+    
+    setUpMediaTableViewConstraints()
   }
   
   func setUpMediaTableViewConstraints(){
@@ -51,5 +51,5 @@ extension MediaView {
     mediaDisplayTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
     
   }
- 
+  
 }

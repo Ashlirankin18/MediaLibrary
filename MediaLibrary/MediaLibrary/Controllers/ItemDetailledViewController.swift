@@ -22,21 +22,39 @@ class ItemDetailledViewController: UIViewController {
   }
   
   required init?(coder aDecoder: NSCoder) {
-   super.init(coder: aDecoder)
+    super.init(coder: aDecoder)
   }
   
   override func viewDidLoad() {
-        super.viewDidLoad()
-      view.addSubview(itemDetailledView)
-      setUpTapGesture()
+    super.viewDidLoad()
+    view.addSubview(itemDetailledView)
+    setUpTapGesture()
     setUpUi()
-    }
- 
+    setUpViewConstraints()
+  }
+  
   
   func setUpTapGesture(){
     tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissView))
     self.view.addGestureRecognizer(tapGesture)
   }
+  
+  func setUpViewConstraints(){
+    itemDetailledView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+    itemDetailledView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    itemDetailledView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    itemDetailledView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+  }
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    setUpViewConstraints()
+  }
+  
+  
+  
+  @objc func dismissView(){
+    dismiss(animated: true, completion: nil)
+  }
+  
   private func getItemImage(urlString:String,imageView:UIImageView){
     if let image = ImageCache.shared.fetchImageFromCache(urlString: urlString){
       DispatchQueue.main.async {
@@ -54,10 +72,6 @@ class ItemDetailledViewController: UIViewController {
         }
       }
     }
-  }
-  
-  @objc func dismissView(){
-  dismiss(animated: true, completion: nil)
   }
   
   func setUpUi(){
@@ -78,7 +92,7 @@ class ItemDetailledViewController: UIViewController {
     \(mediaItem?.artistUrl.absoluteString ?? "no URL found")
     """
   }
-
-    
-
+  
+  
+  
 }

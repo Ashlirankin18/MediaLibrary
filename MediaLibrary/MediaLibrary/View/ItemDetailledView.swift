@@ -9,11 +9,11 @@
 import UIKit
 
 class ItemDetailledView: UIView {
-
+  
   lazy var visualEffectsViews:UIVisualEffectView = {
     let view = UIVisualEffectView()
     view.effect = UIBlurEffect(style: .dark)
-    view.contentMode = .scaleAspectFit
+    
     return view
   }()
   let displayView:UIView = {
@@ -71,11 +71,12 @@ class ItemDetailledView: UIView {
   }
   
   func commonInit(){
-  setUpViews()
-  backgroundColor = .clear
-  contentMode = .scaleAspectFit
+    setUpViews()
+    backgroundColor = .clear
+    contentMode = .center
+    translatesAutoresizingMaskIntoConstraints = false
   }
-
+  
 }
 extension ItemDetailledView {
   func setUpViews(){
@@ -84,12 +85,11 @@ extension ItemDetailledView {
   
   func setUpVisualEffectViewConstraints(){
     addSubview(visualEffectsViews)
-    
     visualEffectsViews.translatesAutoresizingMaskIntoConstraints = false
-    visualEffectsViews.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-    visualEffectsViews.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-    visualEffectsViews.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-    visualEffectsViews.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
+    visualEffectsViews.topAnchor.constraint(equalTo: topAnchor).isActive = true
+    visualEffectsViews.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    visualEffectsViews.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+    visualEffectsViews.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     setUpDisplayView()
     setUpMediaImageConstraints()
     setUpMediaNameConstraints()
@@ -107,7 +107,7 @@ extension ItemDetailledView {
     displayView.addSubview(mediaTypeImage)
     mediaTypeImage.translatesAutoresizingMaskIntoConstraints = false
     mediaTypeImage.topAnchor.constraint(equalToSystemSpacingBelow: displayView.topAnchor, multiplier: 2.0).isActive = true
-   mediaTypeImage.widthAnchor.constraint(equalToConstant: 200).isActive = true
+    mediaTypeImage.widthAnchor.constraint(equalToConstant: 200).isActive = true
     mediaTypeImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
     mediaTypeImage.centerXAnchor.constraint(equalTo: displayView.centerXAnchor).isActive = true
   }
@@ -116,7 +116,7 @@ extension ItemDetailledView {
     itemName.translatesAutoresizingMaskIntoConstraints = false
     itemName.topAnchor.constraint(equalToSystemSpacingBelow: mediaTypeImage.bottomAnchor, multiplier: 2.0).isActive = true
     itemName.widthAnchor.constraint(equalToConstant: 200).isActive = true
-   itemName.heightAnchor.constraint(equalToConstant: 35).isActive = true
+    itemName.heightAnchor.constraint(equalToConstant: 35).isActive = true
     itemName.centerXAnchor.constraint(equalTo: displayView.centerXAnchor).isActive = true
   }
   
