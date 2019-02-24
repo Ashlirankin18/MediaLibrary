@@ -22,15 +22,16 @@ class MediaCell: UITableViewCell {
   lazy var dividerView:UIView = {
     let view = UIView()
     view.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+    view.contentMode = .scaleAspectFit
     return view
   }()
   lazy var itemName:UILabel = {
     let label = UILabel()
-    label.layer.cornerRadius = 5
-    label.layer.borderWidth = 2
+    label.layer.cornerRadius = 2.5
+    label.layer.borderWidth = 1
     label.layer.borderColor = UIColor.black.cgColor
     label.text = "Item Name"
-    label.backgroundColor = #colorLiteral(red: 0.9580904876, green: 1, blue: 0.9470090475, alpha: 1)
+    label.backgroundColor = .white
     label.textAlignment = .center
     label.adjustsFontSizeToFitWidth = true
     label.numberOfLines = 0
@@ -39,11 +40,11 @@ class MediaCell: UITableViewCell {
   
   lazy var itemType:UILabel = {
     let label = UILabel()
-    label.layer.cornerRadius = 5
-    label.layer.borderWidth = 2
+    label.layer.cornerRadius = 2.5
+    label.layer.borderWidth = 1
     label.layer.borderColor = UIColor.black.cgColor
     label.text = "Item Type"
-    label.backgroundColor = #colorLiteral(red: 0.9580904876, green: 1, blue: 0.9470090475, alpha: 1)
+    label.backgroundColor = .white
     label.textAlignment = .center
     label.adjustsFontSizeToFitWidth = true
     return label
@@ -60,6 +61,7 @@ class MediaCell: UITableViewCell {
   
   func commonInit(){
     setUpConstraints()
+    
   }
   
   
@@ -95,7 +97,7 @@ extension MediaCell{
     itemName.topAnchor.constraint(equalToSystemSpacingBelow: safeAreaLayoutGuide.topAnchor, multiplier: 2.5).isActive = true
     itemName.leadingAnchor.constraint(equalToSystemSpacingAfter: dividerView.trailingAnchor, multiplier: 1.0).isActive = true
     itemName.heightAnchor.constraint(equalToConstant: 30).isActive = true
-    itemName.widthAnchor.constraint(equalToConstant: 250).isActive = true
+    itemName.widthAnchor.constraint(equalToConstant: 200).isActive = true
   }
   
   func setUpItemTypeConstraints(){

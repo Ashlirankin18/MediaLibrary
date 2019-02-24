@@ -11,6 +11,7 @@ import UIKit
 class MediaViewController: UIViewController {
 
     let mediaView = MediaView()
+  
   var mediaItems: Feeds? {
     didSet{
       DispatchQueue.main.async {
@@ -18,14 +19,18 @@ class MediaViewController: UIViewController {
       }
     }
   }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       view.addSubview(mediaView)
       self.navigationItem.title = "Media Library"
       mediaView.mediaDisplayTableView.dataSource = self
       mediaView.mediaDisplayTableView.delegate = self
+      view.backgroundColor = .white
       getMediaItems()
+      setUpViewConstraints()
     }
+ 
   private func getMediaItems(){
     MediaApiClient.getMediaItems { (error, mediaItems) in
       if let error = error {
@@ -53,6 +58,14 @@ class MediaViewController: UIViewController {
         }
       }
     }
+  }
+  func setUpViewConstraints(){
+    
+    mediaView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+    mediaView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    mediaView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    mediaView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    
   }
 }
 extension MediaViewController: UITableViewDataSource{
@@ -85,8 +98,7 @@ extension MediaViewController: UITableViewDataSource{
       
     }
   }
-  
-  
+ 
 }
 extension MediaViewController: UITableViewDelegate{
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -96,4 +108,8 @@ extension MediaViewController: UITableViewDelegate{
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return CGFloat.init(120)
   }
-}
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    
+    setUpViewConstraints()
+  }
+  }

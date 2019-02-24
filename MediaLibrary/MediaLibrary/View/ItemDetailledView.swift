@@ -13,7 +13,7 @@ class ItemDetailledView: UIView {
   lazy var visualEffectsViews:UIVisualEffectView = {
     let view = UIVisualEffectView()
     view.effect = UIBlurEffect(style: .dark)
-   
+    view.contentMode = .scaleAspectFit
     return view
   }()
   let displayView:UIView = {
@@ -21,6 +21,7 @@ class ItemDetailledView: UIView {
     view.backgroundColor = .white
     view.layer.cornerRadius = 10
     view.layer.masksToBounds = true
+    view.contentMode = .scaleAspectFit
     return view
   }()
   lazy var mediaTypeImage:UIImageView = {
@@ -29,6 +30,7 @@ class ItemDetailledView: UIView {
     imageView.backgroundColor = .red
     imageView.layer.masksToBounds = true
     imageView.layer.cornerRadius = 8
+    
     return imageView
     
   }()
@@ -41,6 +43,7 @@ class ItemDetailledView: UIView {
     label.backgroundColor = #colorLiteral(red: 0.9580904876, green: 1, blue: 0.9470090475, alpha: 1)
     label.textAlignment = .center
     label.adjustsFontSizeToFitWidth = true
+    label.contentMode = .scaleAspectFit
     return label
   }()
   lazy var itemDescription:UITextView = {
@@ -54,6 +57,7 @@ class ItemDetailledView: UIView {
     textView.dataDetectorTypes = .link
     textView.isEditable = false
     textView.isScrollEnabled = false
+    textView.contentMode = .scaleAspectFit
     return textView
   }()
   override init(frame: CGRect) {
@@ -69,6 +73,7 @@ class ItemDetailledView: UIView {
   func commonInit(){
   setUpViews()
   backgroundColor = .clear
+  contentMode = .scaleAspectFit
   }
 
 }

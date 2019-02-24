@@ -15,6 +15,7 @@ class ItemDetailledViewController: UIViewController {
   let itemDetailledView = ItemDetailledView()
   private var tapGesture: UITapGestureRecognizer!
   
+  
   init(item:Results){
     super.init(nibName: nil, bundle: nil)
     self.item = item
@@ -30,6 +31,7 @@ class ItemDetailledViewController: UIViewController {
       setUpTapGesture()
     setUpUi()
     }
+ 
   
   func setUpTapGesture(){
     tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissView))
@@ -62,7 +64,7 @@ class ItemDetailledViewController: UIViewController {
     let mediaItem = item
     let urlString = mediaItem?.artworkUrl100 ?? "no URLString found"
     getItemImage(urlString: urlString, imageView: itemDetailledView.mediaTypeImage)
-    itemDetailledView.itemName.text = item.name
+    itemDetailledView.itemName.text = "\(item.name.capitalized)"
     itemDetailledView.itemDescription.text = """
     ArtistName: \(mediaItem?.artistName ?? "No artist name found")
     

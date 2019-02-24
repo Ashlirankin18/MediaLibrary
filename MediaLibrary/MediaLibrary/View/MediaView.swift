@@ -14,6 +14,7 @@ class MediaView: UIView {
     let tableView = UITableView(frame: frame, style: .grouped)
     tableView.backgroundColor = .white
     tableView.register(MediaCell.self, forCellReuseIdentifier: "MediaCell")
+    tableView.contentMode = .scaleAspectFit
     return tableView
   }()
   
@@ -30,12 +31,15 @@ class MediaView: UIView {
   func commonInit(){
     setUpViews()
     backgroundColor = .white
+    contentMode = .scaleAspectFit
+    translatesAutoresizingMaskIntoConstraints = false
   }
   
 }
 extension MediaView {
   func setUpViews(){
-    setUpMediaTableViewConstraints()
+  
+  setUpMediaTableViewConstraints()
   }
   
   func setUpMediaTableViewConstraints(){
@@ -47,5 +51,5 @@ extension MediaView {
     mediaDisplayTableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
     
   }
-  
+ 
 }
