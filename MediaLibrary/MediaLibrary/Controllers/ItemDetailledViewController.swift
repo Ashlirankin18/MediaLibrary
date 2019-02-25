@@ -34,7 +34,7 @@ class ItemDetailledViewController: UIViewController {
   }
   
   
-  func setUpTapGesture(){
+private func setUpTapGesture(){
     tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissView))
     self.view.addGestureRecognizer(tapGesture)
   }
@@ -75,7 +75,7 @@ class ItemDetailledViewController: UIViewController {
     }
   }
   
-  func setUpUi(){
+ private func setUpUi(){
     let mediaItem = item
     let urlString = mediaItem?.artworkUrl100 ?? "no URLString found"
     getItemImage(urlString: urlString, imageView: itemDetailledView.mediaTypeImage)

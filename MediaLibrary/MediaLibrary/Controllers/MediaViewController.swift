@@ -10,7 +10,7 @@ import UIKit
 
 class MediaViewController: UIViewController {
 
-    let mediaView = MediaView()
+  let mediaView = MediaView()
   
   var mediaItems: Feeds? {
     didSet{
@@ -59,7 +59,7 @@ class MediaViewController: UIViewController {
       }
     }
   }
-  func setUpViewConstraints(){
+ private func setUpViewConstraints(){
     
     mediaView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
     mediaView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
